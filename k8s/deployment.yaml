@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: fastapi-app
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: fastapi-app
+
+  template:
+    metadata:
+      labels:
+        app: fastapi-app
+
+    spec:
+      containers:
+      - name: fastapi-container
+        image: kubernets_k8-api:latest
+
+        ports:
+        - containerPort: 8000
